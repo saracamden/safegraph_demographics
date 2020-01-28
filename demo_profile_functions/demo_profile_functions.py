@@ -50,7 +50,7 @@ def get_cbg_field_desc(ocd_dir=None, drive=None):
         df = pd_read_csv_drive(get_drive_id('cbg_field_descriptions.csv'), drive)
     return(df)
 
-def get_age_by_sex_():
+def get_age_by_sex_groups2():
     age_groups = {'Ages 15-17': ['B01001e30', 'B01001e6'],
                   'Ages 18-24' : ['B01001e10', 'B01001e31', 'B01001e32', 'B01001e7', 'B01001e8', 'B01001e33', 'B01001e34', 'B01001e9', 'B01001m10'],
                   'Ages 25-34' : ['B01001e11', 'B01001e12', 'B01001e35', 'B01001e36'],

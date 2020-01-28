@@ -444,7 +444,7 @@ def get_age_col_order():
     a,b = get_age_by_sex_groups2()
     return(pd.DataFrame({'demo_code' : [b[this] for this in  list(a.keys())], 'col_order' : list(range(len(list(a.keys()))))}))
 
-  def get_age_col_order():
+def get_age_col_order():
     a,b = get_age_by_sex_groups3()
     return(pd.DataFrame({'demo_code' : [b[this] for this in  list(a.keys())], 'col_order' : list(range(len(list(a.keys()))))}))
 

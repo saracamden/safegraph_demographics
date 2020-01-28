@@ -70,15 +70,6 @@ def get_age_by_sex_groups2():
                            }
     
     return(age_groups, age_groups_new_codes)
-
-def get_age_by_sex_groups3():
-    age_groups = {'Legal Drinking Age' : ['B01001e33', 'B01001e34', 'B01001e9', 'B01001m10', 'B01001e11', 'B01001e12', 'B01001e35', 'B01001e36', 'B01001e13', 'B01001e14', 'B01001e37', 'B01001e38', 'B01001e15', 'B01001e16', 'B01001e39', 'B01001e40', 'B01001e17', 'B01001e18', 'B01001e19', 'B01001e41', 'B01001e42', 'B01001e43', 'B01001e20', 'B01001e21', 'B01001e22', 'B01001e23', 'B01001e24', 'B01001e25', 'B01001e44', 'B01001e45', 'B01001e46', 'B01001e47', 'B01001e48', 'B01001e49']
-    }
-
-    age_groups_new_codes = {'Legal Drinking Age' : 'B01P21PL'
-                           }
-    
-    return(age_groups, age_groups_new_codes)
  
 def get_household_income_groups():
     inc_groups =  {'Less than $59,999' : ['B19001e2','B19001e3', 'B19001e4', 'B19001e5', 'B19001e6', 'B19001e7', 'B19001e8', 'B19001e9','B19001e10', 'B19001e11',],
@@ -123,7 +114,6 @@ def get_final_table_ids(field_level_1):
     inc_read_codes, inc_final_codes = get_household_income_groups()
     edu_read_codes, edu_final_codes = get_edu_attainment_groups()
     age_read_codes, age_final_codes = get_age_by_sex_groups2()
-    age_read_codes, age_final_codes = get_age_by_sex_groups3()
     
     
     final_codes = {'Sex By Age' : pull_vals_of_dict_into_list(age_final_codes),
@@ -167,16 +157,6 @@ def aggregate_ageSex_vars(cen_df_, cbg_field_desc_):
     field_level_1_str = 'Sex By Age'
     field_level_3_str = 'Total Population -- (Estimate)'
     cen_df, cbg_field_desc_ = aggregate_census_columns(cen_df, cbg_field_desc_, age_groups_2, age_groups_new_codes_2, field_level_1_str, field_level_3_str)
-   
-    return(cen_df, cbg_field_desc_)
-
-def aggregate_ageSex_vars(cen_df_, cbg_field_desc_):
-    
-    cen_df = cen_df_.copy() # to avoid assignment warning
-    age_groups_3, age_groups_new_codes_3 = get_age_by_sex_groups3()
-    field_level_1_str = 'Sex By Age'
-    field_level_3_str = 'Total Population -- (Estimate)'
-    cen_df, cbg_field_desc_ = aggregate_census_columns(cen_df, cbg_field_desc_, age_groups_3, age_groups_new_codes_3, field_level_1_str, field_level_3_str)
    
     return(cen_df, cbg_field_desc_)
   
@@ -442,10 +422,6 @@ def get_edu_col_order():
 
 def get_age_col_order():
     a,b = get_age_by_sex_groups2()
-    return(pd.DataFrame({'demo_code' : [b[this] for this in  list(a.keys())], 'col_order' : list(range(len(list(a.keys()))))}))
-
-def get_age_col_order():
-    a,b = get_age_by_sex_groups3()
     return(pd.DataFrame({'demo_code' : [b[this] for this in  list(a.keys())], 'col_order' : list(range(len(list(a.keys()))))}))
 
 def get_race_col_order():

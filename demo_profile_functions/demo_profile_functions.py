@@ -115,7 +115,6 @@ def get_final_table_ids(field_level_1):
     inc_read_codes, inc_final_codes = get_household_income_groups()
     edu_read_codes, edu_final_codes = get_edu_attainment_groups()
     age_read_codes, age_final_codes = get_age_by_sex_groups2()
-    age_read_codes, age_final_codes = get_age_by_sex_groups3()
     
     
     final_codes = {'Sex By Age' : pull_vals_of_dict_into_list(age_final_codes),

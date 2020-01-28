@@ -71,13 +71,6 @@ def get_age_by_sex_groups():
     
     return(age_groups, age_groups_new_codes)
 
-def get_age_by_sex_groups():
-	age_groups = {'Legal Drinking Age' : ['B01001e33', 'B01001e34', 'B01001e9', 'B01001m10', 'B01001e11', 'B01001e12', 'B01001e35', 'B01001e36', 'B01001e13', 'B01001e14', 'B01001e37', 'B01001e38', 'B01001e15', 'B01001e16', 'B01001e39', 'B01001e40', 'B01001e17', 'B01001e18', 'B01001e19', 'B01001e41', 'B01001e42', 'B01001e43', 'B01001e20', 'B01001e21', 'B01001e22', 'B01001e23', 'B01001e24', 'B01001e25', 'B01001e44', 'B01001e45', 'B01001e46', 'B01001e47', 'B01001e48', 'B01001e49'],
-	}
-
-	age_groups_new_codes = {'Legal Drinking Age' : 'B01P21PL',
-	}
-
  
 def get_household_income_groups():
     inc_groups =  {'Less than $59,999' : ['B19001e2','B19001e3', 'B19001e4', 'B19001e5', 'B19001e6', 'B19001e7', 'B19001e8', 'B19001e9','B19001e10', 'B19001e11',],

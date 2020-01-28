@@ -170,7 +170,7 @@ def aggregate_ageSex_vars(cen_df_, cbg_field_desc_):
    
     return(cen_df, cbg_field_desc_)
 
-  def aggregate_ageSex_vars(cen_df_, cbg_field_desc_):
+def aggregate_ageSex_vars(cen_df_, cbg_field_desc_):
     
     cen_df = cen_df_.copy() # to avoid assignment warning
     age_groups_3, age_groups_new_codes_3 = get_age_by_sex_groups3()

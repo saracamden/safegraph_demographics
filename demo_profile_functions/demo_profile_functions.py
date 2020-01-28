@@ -50,23 +50,23 @@ def get_cbg_field_desc(ocd_dir=None, drive=None):
         df = pd_read_csv_drive(get_drive_id('cbg_field_descriptions.csv'), drive)
     return(df)
 
-def get_age_by_sex_groups():
+def get_age_by_sex_groups2():
     age_groups = {'Ages 15-17': ['B01001e30', 'B01001e6'],
                   'Ages 18-24' : ['B01001e10', 'B01001e31', 'B01001e32', 'B01001e7', 'B01001e8', 'B01001e33', 'B01001e34', 'B01001e9', 'B01001m10'],
                   'Ages 25-34' : ['B01001e11', 'B01001e12', 'B01001e35', 'B01001e36'],
-		'Ages 35-44' : ['B01001e13', 'B01001e14', 'B01001e37', 'B01001e38'],
-		'Ages 45-54' : ['B01001e15', 'B01001e16', 'B01001e39', 'B01001e40'],
-		'Ages 55-64' : ['B01001e17', 'B01001e18', 'B01001e19', 'B01001e41', 'B01001e42', 'B01001e43'],
-		'Ages 65+' : ['B01001e20', 'B01001e21', 'B01001e22', 'B01001e23', 'B01001e24', 'B01001e25', 'B01001e44', 'B01001e45', 'B01001e46', 'B01001e47', 'B01001e48', 'B01001e49'],
+        'Ages 35-44' : ['B01001e13', 'B01001e14', 'B01001e37', 'B01001e38'],
+        'Ages 45-54' : ['B01001e15', 'B01001e16', 'B01001e39', 'B01001e40'],
+        'Ages 55-64' : ['B01001e17', 'B01001e18', 'B01001e19', 'B01001e41', 'B01001e42', 'B01001e43'],
+        'Ages 65+' : ['B01001e20', 'B01001e21', 'B01001e22', 'B01001e23', 'B01001e24', 'B01001e25', 'B01001e44', 'B01001e45', 'B01001e46', 'B01001e47', 'B01001e48', 'B01001e49']
     }
     
     age_groups_new_codes = {'Ages 15-17' : 'B01P1517',
                             'Ages 18-24' : 'B01P1824',
                             'Ages 25-34' : 'B01P2534',
-			'Ages 35-44' : 'B01P3544',
-			'Ages 45-54' : 'B01P4554',
-			'Ages 55-64' : 'B01P5564',
-			'Ages 65+' : 'B01P65PL',
+            'Ages 35-44' : 'B01P3544',
+            'Ages 45-54' : 'B01P4554',
+            'Ages 55-64' : 'B01P5564',
+            'Ages 65+' : 'B01P65PL'
                            }
     
     return(age_groups, age_groups_new_codes)
@@ -114,7 +114,8 @@ def get_final_table_ids(field_level_1):
         
     inc_read_codes, inc_final_codes = get_household_income_groups()
     edu_read_codes, edu_final_codes = get_edu_attainment_groups()
-    age_read_codes, age_final_codes = get_age_by_sex_groups()
+    age_read_codes, age_final_codes = get_age_by_sex_groups2()
+    age_read_codes, age_final_codes = get_age_by_sex_groups3()
     
     
     final_codes = {'Sex By Age' : pull_vals_of_dict_into_list(age_final_codes),
@@ -154,10 +155,10 @@ def aggregate_census_columns(cen_df_, cbg_field_desc_, agg_groups, agg_groups_ne
 def aggregate_ageSex_vars(cen_df_, cbg_field_desc_):
     
     cen_df = cen_df_.copy() # to avoid assignment warning
-    age_groups, age_groups_new_codes = get_age_by_sex_groups()
+    age_groups_2, age_groups_new_codes_2 = get_age_by_sex_groups2()
     field_level_1_str = 'Sex By Age'
     field_level_3_str = 'Total Population -- (Estimate)'
-    cen_df, cbg_field_desc_ = aggregate_census_columns(cen_df, cbg_field_desc_, age_groups, age_groups_new_codes, field_level_1_str, field_level_3_str)
+    cen_df, cbg_field_desc_ = aggregate_census_columns(cen_df, cbg_field_desc_, age_groups_2, age_groups_new_codes_2, field_level_1_str, field_level_3_str)
    
     return(cen_df, cbg_field_desc_)
 
